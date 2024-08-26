@@ -4,6 +4,7 @@ import { HeaderComponent } from '../../core/components/header/header.component';
 import { FooterComponent } from '../../core/components/footer/footer.component';
 import { Router } from '@angular/router';
 import { CarpoolResultComponent } from '../../shared/components/carpool-result/carpool-result.component';
+import { NgxSpinnerComponent, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-carpool-search',
@@ -12,7 +13,8 @@ import { CarpoolResultComponent } from '../../shared/components/carpool-result/c
     ReactiveFormsModule,
     HeaderComponent,
     FooterComponent,
-    CarpoolResultComponent
+    CarpoolResultComponent,
+    NgxSpinnerComponent
   ],
   templateUrl: './carpool-search.component.html',
   styleUrl: './carpool-search.component.scss'
@@ -20,14 +22,19 @@ import { CarpoolResultComponent } from '../../shared/components/carpool-result/c
 export class CarpoolSearchComponent implements OnInit{
   procurarCaronaForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private spinner: NgxSpinnerService) {
     this.procurarCaronaForm = this.fb.group({
       pontoPartida: ['', Validators.required],
       bairroDestino: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+  }
 
   onProcurarCarona(): void {
     if (this.procurarCaronaForm.valid) {

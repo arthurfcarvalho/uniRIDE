@@ -15,6 +15,7 @@ import { Router, RouterModule } from '@angular/router';
 export class HeaderComponent {
   user!: any;
   dropdownOpen: boolean = false;
+  logoRoute: string = '/';
 
   constructor(private router: Router) {}
 
@@ -24,6 +25,7 @@ export class HeaderComponent {
       this.user = undefined;
     } else {
       this.user = { name: 'Arthur Carvalho' };
+      this.logoRoute = '/inicio';
     }
   }
 

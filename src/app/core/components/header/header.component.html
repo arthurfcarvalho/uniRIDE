@@ -1,6 +1,6 @@
 <header class="header">
   <div class="logo">
-    <img [routerLink]="['/']" src="assets/images/logo.svg" alt="Logo">
+    <img [routerLink]="logoRoute" src="assets/images/logo.svg" alt="Logo">
   </div>
   <div class="auth-buttons" *ngIf="!user">
     <button [routerLink]="['/login']" class="btn login">Entrar</button>

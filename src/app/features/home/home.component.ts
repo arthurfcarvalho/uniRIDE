@@ -59,6 +59,10 @@ export class HomeComponent {
       this.toasterService.success('Carona cadastrada com sucesso! (back ainda não integrado!)', 'Sucesso', {
         progressBar: true
       });
+    } else {
+      this.toasterService.error('Preencha todos os campos corretamente!', 'Erro', {
+        progressBar: true
+      });
     }
   }
 }
