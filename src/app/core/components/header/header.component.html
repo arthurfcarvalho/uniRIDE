@@ -1,0 +1,18 @@
+<header class="header">
+  <div class="logo">
+    <img [routerLink]="['/']" src="assets/images/logo.svg" alt="Logo">
+  </div>
+  <div class="auth-buttons" *ngIf="!user">
+    <button [routerLink]="['/login']" class="btn login">Entrar</button>
+    <button [routerLink]="['/cadastrar']" class="btn register">Cadastrar</button>
+  </div>
+  <div class="user-menu" *ngIf="user">
+    <div class="user-name" (click)="toggleDropdown()">
+      {{ user.name }}
+    </div>
+    <div class="dropdown" *ngIf="dropdownOpen">
+      <button (click)="editProfile()">Editar Perfil</button>
+      <button (click)="logout()">Sair</button>
+    </div>
+  </div>
+</header>

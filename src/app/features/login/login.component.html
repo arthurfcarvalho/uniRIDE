@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+<main class="login-container">
+  <form class="login-form" (submit)="onSubmit($event)">
+    <h2>Login</h2>
+    <div class="form-group">
+      <div class="label-container">
+        <label for="email">E-mail</label>
+      </div>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <div class="label-container">
+        <label for="password">Senha</label>
+        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+      </div>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit" class="btn login-btn">Entrar</button>
+  </form>
+</main>
+
+<app-footer></app-footer>

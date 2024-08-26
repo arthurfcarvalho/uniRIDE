@@ -1,0 +1,71 @@
+@import '../../../assets/styles/variables.scss';
+
+.landing-page {
+  .hero {
+    text-align: center;
+    margin: 2rem 0;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      color: $color-secondary-strong; /* Usando variável de cor */
+    }
+
+    img {
+      width: 80%;
+      max-width: 600px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .benefits {
+    text-align: center;
+    margin: 2rem 0;
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      color: $color-secondary-strong; /* Usando variável de cor */
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+
+      .card {
+        background-color: $color-primary-light; /* Usando cor diferente do background */
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transição suave */
+
+        &:hover {
+          transform: scale(1.05); /* Aumenta o tamanho do card */
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra maior */
+        }
+
+        img {
+          width: 50px;
+          height: 50px;
+          margin-bottom: 1rem;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+          color: $color-secondary-stronger; /* Usando variável de cor */
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

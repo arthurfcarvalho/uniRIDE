@@ -1,0 +1,14 @@
+<div class="card">
+    <iframe
+      width="100%"
+      height="300"
+      frameborder="0"
+      style="border: 0"
+      [src]="googleMapsUrl | safeUrl"
+      allowfullscreen
+    ></iframe>
+    <p><strong>Nome do Motorista:</strong> {{ nomeMotorista }}</p>
+    <p><strong>Ponto de Partida:</strong> {{ pontoPartida }}</p>
+    <p><strong>Ponto de Destino:</strong> {{ pontoDestino }}</p>
+    <p><strong>Avaliação do Motorista:</strong> {{ avaliacaoMotorista }}</p>
+  </div>

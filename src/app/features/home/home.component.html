@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="home-page">
+  <div class="tabs">
+    <div class="tab" [class.active]="selectedTab === 'procurar'" (click)="selectTab('procurar')">
+      Procurar Carona
+    </div>
+    <div class="tab" [class.active]="selectedTab === 'cadastrar'" (click)="selectTab('cadastrar')">
+      Cadastrar Carona
+    </div>
+  </div>
+  <div class="tab-content">
+    <div *ngIf="selectedTab === 'procurar'">
+      <form [formGroup]="procurarCaronaForm" (ngSubmit)="onProcurarCarona()">
+        <div class="form-group">
+          <label for="bairro">Bairro</label>
+          <input id="bairro" formControlName="bairro" type="text" required>
+        </div>
+        <div class="form-action">
+          <button type="submit">Procurar</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="selectedTab === 'cadastrar'">
+      <form [formGroup]="cadastrarCaronaForm" (ngSubmit)="onCadastrarCarona()">
+        <div class="form-group">
+          <label for="pontoPartida">Ponto de Partida</label>
+          <input id="pontoPartida" formControlName="pontoPartida" type="text" required>
+        </div>
+        <div class="form-group">
+          <label for="bairroDestino">Bairro de Destino</label>
+          <input id="bairroDestino" formControlName="bairroDestino" type="text" required>
+        </div>
+        <div class="form-action">
+          <button type="submit">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
