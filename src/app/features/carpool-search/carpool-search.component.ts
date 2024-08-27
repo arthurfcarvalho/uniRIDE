@@ -30,6 +30,7 @@ export class CarpoolSearchComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.route.paramMap.subscribe(params => {
       const bairro = params.get('bairro');
       if (bairro) {
@@ -38,6 +39,9 @@ export class CarpoolSearchComponent implements OnInit{
         });
       }
     });
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 3000);
   }
 
   onProcurarCarona(): void {
