@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HeaderComponent } from '../../core/components/header/header.component';
 import { FooterComponent } from '../../core/components/footer/footer.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarpoolResultComponent } from '../../shared/components/carpool-result/carpool-result.component';
 
 @Component({
@@ -20,14 +20,23 @@ import { CarpoolResultComponent } from '../../shared/components/carpool-result/c
 export class CarpoolSearchComponent implements OnInit{
   procurarCaronaForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
     this.procurarCaronaForm = this.fb.group({
       pontoPartida: ['', Validators.required],
       bairroDestino: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const bairro = params.get('bairro');
+      if (bairro) {
+        this.procurarCaronaForm.patchValue({
+          bairroDestino: bairro
+        });
+      }
+    });
+  }
 
   onProcurarCarona(): void {
     if (this.procurarCaronaForm.valid) {
