@@ -15,14 +15,14 @@
     .tab {
       padding: 1rem 2rem;
       cursor: pointer;
-      background-color: $color-secondary;
+      background-color: $color-secondary-strong;
       color: $color-text;
       border-radius: 0.5rem 0.5rem 0 0;
       margin-right: 1rem;
       transition: background-color 0.3s ease;
 
       &.active {
-        background-color: $color-secondary-strong;
+        background-color: $color-secondary;
       }
 
       &:hover {
